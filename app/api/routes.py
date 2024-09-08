@@ -2,7 +2,7 @@ from typing import Annotated
 
 from fastapi import UploadFile, File, APIRouter, HTTPException, Query
 from app.services.s3_service import S3Service
-from validation import validate_file
+from app.services.validation import validate_file
 
 router = APIRouter()
 s3_service = S3Service()

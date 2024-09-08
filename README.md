@@ -85,6 +85,7 @@ This is a FastAPI-based service that provides a proxy for uploading and download
    AWS_SECRET_ACCESS_KEY=secret-access-key
    AWS_REGION=aws-region
    FILE_DOWNLOAD_EXPIRY=time_in_seconds_like_3600
+   MAX_FILE_SIZE_MB=allowed_file_size
    ```
 
 ### 4. Install Dependencies

@@ -20,14 +20,14 @@ class S3Service:
             self.s3_client.head_bucket(Bucket=bucket_name)
             return True
         except ClientError as e:
-            raise HTTPException(status_code=500, detail=f"Server failed to validate bucket {bucket_name}: {str(e)}")
+            return False
 
     def object_exists(self, bucket_name, object_name):
         try:
             self.s3_client.head_object(Bucket=bucket_name, Key=object_name)
             return True
         except ClientError as e:
-            raise HTTPException(status_code=500, detail=f"Server failed to validate object {object_name}: {str(e)}")
+            return False
 
     def create_bucket(self, bucket_name):
         try:

@@ -24,7 +24,9 @@ async def upload_file(
         result = await s3_service.upload_file_to_s3(bucket_name, object_name, file)
 
         if result:
-            return {"message": "File uploaded successfully"}
+            return {
+                "message": "File uploaded successfully"
+            }
 
         raise HTTPException(status_code=500, detail="Upload failed due to a server issue")
 
@@ -38,5 +40,8 @@ async def download_file(
 ):
     file_url = await s3_service.download_file_from_s3(bucket_name, object_name)
     if file_url:
-        return {"file_url": file_url}
+        return {
+            "message": f"returned presigned URL expiring in 3600 seconds",
+            "file_url": file_url
+        }
     raise HTTPException(status_code=404, detail="File not found")
